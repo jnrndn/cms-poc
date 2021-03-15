@@ -2,7 +2,7 @@
 
 This is a Blog developed using Gatsby in the frontend and Strapi as a headless cms. 
 
-## Instalation:
+## Installation:
 + Clone the repo.
 ---
 + ``cd backend/`` and run ``yarn`` to install dependencies.
