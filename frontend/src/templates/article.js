@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Img from "gatsby-plugin-image";
+import Img from "gatsby-image";
 import Moment from "react-moment";
 import Layout from "../components/layout";
 import Markdown from "react-markdown";
@@ -16,8 +16,8 @@ export const query = graphql`
       image {
         publicURL
         childImageSharp {
-          fixed {
-            src
+          fluid {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -25,8 +25,8 @@ export const query = graphql`
         name
         picture {
           childImageSharp {
-            fixed(width: 30, height: 30) {
-              src
+            fluid(maxWidth: 30, maxHeight: 30) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -67,7 +67,7 @@ const Article = ({ data }) => {
               <div>
                 {article.author.picture && (
                   <Img
-                    fixed={article.author.picture.childImageSharp.fixed}
+                    fluid={article.author.picture.childImageSharp.fluid}
                     imgStyle={{ position: "static", borderRadius: "50%" }}
                   />
                 )}

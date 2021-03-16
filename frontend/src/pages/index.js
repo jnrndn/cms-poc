@@ -44,8 +44,8 @@ const query = graphql`
           }
           image {
             childImageSharp {
-              fixed(width: 800, height: 500) {
-                src
+              fluid(maxWidth: 800, maxHeight: 500) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -53,8 +53,8 @@ const query = graphql`
             name
             picture {
               childImageSharp {
-                fixed(width: 30, height: 30) {
-                  src
+                fluid(maxWidth: 30, maxHeight: 30) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

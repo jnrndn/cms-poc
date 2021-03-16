@@ -17,8 +17,8 @@ export const query = graphql`
           }
           image {
             childImageSharp {
-              fixed(width: 660) {
-                src
+              fluid(maxWidth: 660) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -26,8 +26,8 @@ export const query = graphql`
             name
             picture {
               childImageSharp {
-                fixed(width: 30, height: 30) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 30, maxHeight: 30) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
